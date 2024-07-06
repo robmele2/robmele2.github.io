@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LuckyJetH@CK</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: black;
+            color: white;
+            font-family: Arial, sans-serif;
+            margin: 0;
+        }
+        .title {
+            font-size: 4rem;
+            margin-bottom: 100px;
+        }
+        .circle {
+            width: 150px;
+            height: 150px;
+            border-radius: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 2.3rem;
+            border: 6px solid white;
+            animation: pulse 2s infinite;
+        }
+        .footer {
+            margin-top: 100px;
+            font-size: 2rem;
+        }
+        .x-container {
+            display: flex;
+            align-items: center;
+        }
+        .x-container div {
+            margin: 0 2px;
+        }
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            52% {
+                transform: scale(1.50);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="title">LuckyJetH@CK</div>
+    <div class="circle">
+        <div class="x-container">
+            <div>x</div>
+            <div id="coefficient"></div>
+        </div>
+    </div>
+    <div class="footer">TG @david_moneymaker</div>
+
+    <script>
+        function getRandomX(min, max) {
+            return (Math.random() * (max - min) + min).toFixed(2);
+        }
+
+        window.onload = () => {
+            const coefficientElement = document.getElementById('coefficient');
+            const randomX = getRandomX(1.10, 1.90);
+            coefficientElement.textContent = randomX;
+        };
+    </script>
+</body>
+</html>
