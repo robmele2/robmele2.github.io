@@ -108,17 +108,21 @@
             const now = new Date().getTime();
             const waitTime = 10 * 60 * 1000; // 10 минут в миллисекундах
 
-            if (lastVisit && (now - lastVisit) < waitTime) {
-                const timeLeft = waitTime - (now - lastVisit);
-                const minutes = Math.floor(timeLeft / (60 * 1000));
-                const seconds = Math.floor((timeLeft % (60 * 1000)) / 1000);
-                document.body.innerHTML = `<div class="title">Please wait ${minutes} minutes and ${seconds} seconds before trying again.</div>`;
-            } else {
-                setCookie('lastVisit', now, 10); // Установить cookie на 10 минут
-                const coefficientElement = document.getElementById('coefficient');
-                const randomX = getRandomX(1.10, 1.90);
-                coefficientElement.textContent = randomX;
+            if (lastVisit) {
+                const timeSinceLastVisit = now - parseInt(lastVisit, 10);
+                if (timeSinceLastVisit < waitTime) {
+                    const timeLeft = waitTime - timeSinceLastVisit;
+                    const minutes = Math.floor(timeLeft / (60 * 1000));
+                    const seconds = Math.floor((timeLeft % (60 * 1000)) / 1000);
+                    document.body.innerHTML = `<div class="title">Please wait ${minutes} minutes and ${seconds} seconds before trying again.</div>`;
+                    return;
+                }
             }
+
+            setCookie('lastVisit', now, 10); // Установить cookie на 10 минут
+            const coefficientElement = document.getElementById('coefficient');
+            const randomX = getRandomX(1.10, 1.90);
+            coefficientElement.textContent = randomX;
         };
     </script>
 </body>
