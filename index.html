@@ -91,7 +91,7 @@
             const firstClick = parseInt(urlParams.get('first_click'), 10);
 
             const now = new Date().getTime();
-            const waitTime = 10 * 60 * 1000; // 10 minutes in milliseconds
+            const waitTime = 10 * 60 * 1000; // 10 минут в миллисекундах
 
             if (now - firstClick < waitTime) {
                 const timeLeft = waitTime - (now - firstClick);
