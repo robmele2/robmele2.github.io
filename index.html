@@ -4,73 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1.0, minimum-scale=1.0">
     <title>LuckyJetH@CK</title>
-    <style>
-        body {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background-color: black;
-            color: white;
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0 10px;
-            box-sizing: border-box;
-            text-align: center;
-        }
-        .title {
-            font-size: 3rem;
-            margin-bottom: 50px;
-        }
-        .circle {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 2rem;
-            border: 6px solid white;
-            animation: pulse 2s infinite;
-        }
-        .footer {
-            margin-top: 50px;
-            font-size: 1.5rem;
-        }
-        .x-container {
-            display: flex;
-            align-items: center;
-        }
-        .x-container div {
-            margin: 0 5px;
-        }
-        @keyframes pulse {
-            0%, 100% {
-                transform: scale(1);
-            }
-            52% {
-                transform: scale(1.1);
-            }
-        }
-        @media (max-width: 600px) {
-            .title {
-                font-size: 2.5rem;
-                margin-bottom: 30px;
-            }
-            .circle {
-                width: 120px;
-                height: 120px;
-                font-size: 1.5rem;
-            }
-            .footer {
-                font-size: 1.2rem;
-                margin-top: 30px;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <div class="background"></div>
     <div class="title">LuckyJetH@CK</div>
     <div class="circle">
         <div class="x-container">
@@ -79,60 +16,6 @@
         </div>
     </div>
     <div class="footer">TG @david_moneymaker</div>
-
-    <script>
-        function getRandomX(min, max) {
-            return (Math.random() * (max - min) + min).toFixed(2);
-        }
-
-        function setCookie(name, value, minutes) {
-            const date = new Date();
-            date.setTime(date.getTime() + (minutes * 60 * 1000));
-            const expires = "; expires=" + date.toUTCString();
-            document.cookie = name + "=" + (value || "") + expires + "; path=/";
-        }
-
-        function getCookie(name) {
-            const nameEQ = name + "=";
-            const ca = document.cookie.split(';');
-            for(let i=0;i < ca.length;i++) {
-                let c = ca[i];
-                while (c.charAt(0) == ' ') c = c.substring(1,c.length);
-                if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
-            }
-            return null;
-        }
-
-        function notifyBot() {
-            const urlParams = new URLSearchParams(window.location.search);
-            const userId = urlParams.get('userid');
-            fetch('https://yourserver.com/webhook', { // Замените на ваш сервер
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({ userId: userId }),
-            });
-        }
-
-        window.onload = () => {
-            const lastVisit = getCookie('lastVisit');
-            const now = new Date().getTime();
-            const waitTime = 10 * 60 * 1000; // 10 минут в миллисекундах
-
-            if (lastVisit && (now - lastVisit) < waitTime) {
-                const timeLeft = waitTime - (now - lastVisit);
-                const minutes = Math.floor(timeLeft / (60 * 1000));
-                const seconds = Math.floor((timeLeft % (60 * 1000)) / 1000);
-                document.body.innerHTML = `<div class="title">Please wait ${minutes} minutes and ${seconds} seconds before trying again.</div>`;
-            } else {
-                setCookie('lastVisit', now, 10); // Установить cookie на 10 минут
-                const coefficientElement = document.getElementById('coefficient');
-                const randomX = getRandomX(1.10, 1.90);
-                coefficientElement.textContent = randomX;
-                notifyBot(); // Уведомляем бота о посещении страницы
-            }
-        };
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
