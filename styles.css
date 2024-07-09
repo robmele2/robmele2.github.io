@@ -33,7 +33,6 @@ body {
 }
 .title {
     font-size: 6rem;
-    -webkit-text-stroke: 0.030rem black;
 }
 .circle {
     width: 7rem;
