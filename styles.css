@@ -36,13 +36,13 @@ body {
     -webkit-text-stroke: 0.030rem black;
 }
 .circle {
-    width: 8rem;
-    height: 8rem;
-    border-radius: 50%;
+    width: 7rem;
+    height: 7rem;
+    border-radius: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 2rem;
+    font-size: 1.8rem;
     border: 0.4rem solid white;
     animation: pulse 3s infinite;
     background-color: rgba(1, 2, 33, 0.3);
@@ -73,15 +73,14 @@ body {
         transform: scale(1.2);
     }
 }
-@media (max-width: 600px) {
+@media (max-width: 1200px) {
     .title {
         font-size: 3rem;
-        -webkit-text-stroke: 0.15rem black;
     }
     .circle {
-        width: 10rem;
-        height: 10rem;
-        font-size: 1.5rem;
+        width: 7rem;
+        height: 7rem;
+        font-size: 1.8rem;
         border: 0.3rem solid white;
     }
     .footer {
