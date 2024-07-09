@@ -33,16 +33,16 @@ body {
 }
 .title {
     font-size: 6rem;
-    -webkit-text-stroke: 0.2rem black;
+    -webkit-text-stroke: 0.030rem black;
 }
 .circle {
-    width: 11rem;
-    height: 11rem;
-    border-radius: 100%;
+    width: 8rem;
+    height: 8rem;
+    border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 3rem;
+    font-size: 2rem;
     border: 0.4rem solid white;
     animation: pulse 3s infinite;
     background-color: rgba(1, 2, 33, 0.3);
