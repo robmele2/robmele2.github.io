@@ -35,7 +35,7 @@ function notifyBot() {
 window.onload = () => {
     const lastVisit = getCookie('lastVisit');
     const now = new Date().getTime();
-    const waitTime = 10; // 10 minutes in milliseconds 10 * 60 * 1000
+    const waitTime = 10 * 60 * 1000; // 10 minutes in milliseconds 10 * 60 * 1000
 
     if (lastVisit && (now - lastVisit) < waitTime) {
         const timeLeft = waitTime - (now - lastVisit);
