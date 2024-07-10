@@ -35,7 +35,7 @@ function notifyBot() {
 window.onload = () => {
     const lastVisit = getCookie('lastVisit');
     const now = new Date().getTime();
-    const waitTime = 10 * 60 * 1000; // 10 minutes in milliseconds 10 * 60 * 1000
+    const waitTime = 3 * 60 * 1000; // 10 minutes in milliseconds 10 * 60 * 1000
 
     if (lastVisit && (now - lastVisit) < waitTime) {
         const timeLeft = waitTime - (now - lastVisit);
@@ -45,7 +45,7 @@ window.onload = () => {
     } else {
         setCookie('lastVisit', now, 10); // Set cookie for 10 minutes
         const coefficientElement = document.getElementById('coefficient');
-        const randomX = getRandomX(1.10, 1.90);
+        const randomX = getRandomX(1.09, 1.45);
         coefficientElement.textContent = randomX;
         notifyBot(); // Notify the bot about the page visit
     }
