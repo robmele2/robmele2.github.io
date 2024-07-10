@@ -41,7 +41,7 @@ window.onload = () => {
         const timeLeft = waitTime - (now - lastVisit);
         const minutes = Math.floor(timeLeft / (60 * 1000));
         const seconds = Math.floor((timeLeft % (60 * 1000)) / 1000);
-        document.body.innerHTML = `<div class="title">Please wait ${minutes} minutes and ${seconds} seconds before trying again.</div>`;
+        document.body.innerHTML = `<div class="title">Пожалуйста подождите ${minutes} минут и ${seconds} секунд для получения следующего сигнала.</div>`;
     } else {
         setCookie('lastVisit', now, 10); // Set cookie for 10 minutes
         const coefficientElement = document.getElementById('coefficient');
